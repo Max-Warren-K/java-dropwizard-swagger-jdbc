@@ -96,7 +96,7 @@ class EmployeeValidatorTest {
     This should pass without code changes
      */
     @Test
-    public void isValidEmployee_shouldReturnFalse_whenBankNumberTooShort() throws SalaryTooLowException, BankNumberLengthException {
+    public void isValidEmployee_shouldThrowBankNumberLengthException_whenBankNumberTooShort() throws SalaryTooLowException, BankNumberLengthException {
         EmployeeRequest employeeRequest = new EmployeeRequest(
                 30000,
                 "Tim",
@@ -128,7 +128,7 @@ class EmployeeValidatorTest {
     This should fail, make code changes to make this test pass
      */
     @Test
-    public void isValidEmployee_shouldThrowFNameLengthInspection_whenEmployeeFirstNameTooLong() throws SalaryTooLowException, BankNumberLengthException {
+    public void isValidEmployee_shouldReturnFalse_whenEmployeeFirstNameTooLong() throws SalaryTooLowException, BankNumberLengthException, NinLengthException, FNameLengthException, LNameLengthException {
         EmployeeRequest employeeRequest = new EmployeeRequest(
                 30000,
                 "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz",
@@ -145,7 +145,7 @@ class EmployeeValidatorTest {
                 "AA1A11AA"
         );
 
-        assertThrows(FNameLengthException.class, () ->employeeValidator.isValidEmployee(employeeRequest));
+        assertFalse(employeeValidator.isValidEmployee(employeeRequest));
     }
     /*
     Unit Test Exercise 4
@@ -159,7 +159,7 @@ class EmployeeValidatorTest {
     This should fail, make code changes to make this test pass
      */
     @Test
-    public void isValidEmployee_shouldThrowLNameLengthInspection_whenEmployeeLastNameTooLong() throws SalaryTooLowException, BankNumberLengthException {
+    public void isValidEmployee_shouldReturnFalse_whenEmployeeLastNameTooLong() throws SalaryTooLowException, BankNumberLengthException, NinLengthException, FNameLengthException, LNameLengthException {
         EmployeeRequest employeeRequest = new EmployeeRequest(
                 30000,
                 "Tim",
@@ -176,7 +176,7 @@ class EmployeeValidatorTest {
                 "AA1A11AA"
         );
 
-        assertThrows(LNameLengthException.class, () ->employeeValidator.isValidEmployee(employeeRequest));
+        assertFalse(employeeValidator.isValidEmployee(employeeRequest));
     }
     /*
     Unit Test Exercise 5
@@ -245,7 +245,8 @@ class EmployeeValidatorTest {
 
 
     //Self selected cases
-    public void isValidEmployee_shouldThrowFNameLengthInspection_whenEmployeeFirstNameTooShort() throws SalaryTooLowException, BankNumberLengthException {
+    @Test
+    public void isValidEmployee_shouldReturnFalse_whenEmployeeFirstNameTooShort() throws SalaryTooLowException, BankNumberLengthException, NinLengthException, FNameLengthException, LNameLengthException {
         EmployeeRequest employeeRequest = new EmployeeRequest(
                 30000,
                 "",
@@ -262,10 +263,10 @@ class EmployeeValidatorTest {
                 "AA1A11AA"
         );
 
-        assertThrows(FNameLengthException.class, () ->employeeValidator.isValidEmployee(employeeRequest));
+        assertFalse(employeeValidator.isValidEmployee(employeeRequest));
     }
     @Test
-    public void isValidEmployee_shouldThrowLNameLengthInspection_whenEmployeeLastNameTooShort() throws SalaryTooLowException, BankNumberLengthException {
+    public void isValidEmployee_shouldReturnFalse_whenEmployeeLastNameTooShort() throws SalaryTooLowException, BankNumberLengthException, NinLengthException, FNameLengthException, LNameLengthException {
         EmployeeRequest employeeRequest = new EmployeeRequest(
                 30000,
                 "Tim",
@@ -282,7 +283,7 @@ class EmployeeValidatorTest {
                 "AA1A11AA"
         );
 
-        assertThrows(LNameLengthException.class, () ->employeeValidator.isValidEmployee(employeeRequest));
+        assertFalse(employeeValidator.isValidEmployee(employeeRequest));
     }
 
 }
