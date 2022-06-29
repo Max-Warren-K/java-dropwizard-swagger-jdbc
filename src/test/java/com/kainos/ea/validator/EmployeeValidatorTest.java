@@ -11,7 +11,7 @@ class EmployeeValidatorTest {
     EmployeeValidator employeeValidator = new EmployeeValidator();
 
     @Test
-    public void isValidEmployee_shouldReturnTrue_whenValidEmployee() throws SalaryTooLowException, BankNumberLengthException, FNameLengthException, LNameLengthException, NinLengthException {
+    public void isValidEmployee_shouldReturnTrue_whenValidEmployee() throws SalaryTooLowException, BankNumberLengthException, NinLengthException {
         EmployeeRequest employeeRequest = new EmployeeRequest(
                 30000,
                 "Tim",
@@ -65,7 +65,7 @@ class EmployeeValidatorTest {
     This should pass without code changes
      */
     @Test
-    public void isValidEmployee_shouldThrowBankNumberTooShortException_whenBankNumberTooShort() throws SalaryTooLowException, BankNumberLengthException {
+    public void isValidEmployee_shouldThrowBankNumberTooShortException_whenBankNumberTooShort(){
         EmployeeRequest employeeRequest = new EmployeeRequest(
                 30000,
                 "Tim",
@@ -96,7 +96,7 @@ class EmployeeValidatorTest {
     This should pass without code changes
      */
     @Test
-    public void isValidEmployee_shouldThrowBankNumberLengthException_whenBankNumberTooShort() throws SalaryTooLowException, BankNumberLengthException {
+    public void isValidEmployee_shouldThrowBankNumberLengthException_whenBankNumberTooShort(){
         EmployeeRequest employeeRequest = new EmployeeRequest(
                 30000,
                 "Tim",
@@ -128,7 +128,7 @@ class EmployeeValidatorTest {
     This should fail, make code changes to make this test pass
      */
     @Test
-    public void isValidEmployee_shouldReturnFalse_whenEmployeeFirstNameTooLong() throws SalaryTooLowException, BankNumberLengthException, NinLengthException, FNameLengthException, LNameLengthException {
+    public void isValidEmployee_shouldReturnFalse_whenEmployeeFirstNameTooLong() throws SalaryTooLowException, BankNumberLengthException, NinLengthException{
         EmployeeRequest employeeRequest = new EmployeeRequest(
                 30000,
                 "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz",
@@ -159,7 +159,7 @@ class EmployeeValidatorTest {
     This should fail, make code changes to make this test pass
      */
     @Test
-    public void isValidEmployee_shouldReturnFalse_whenEmployeeLastNameTooLong() throws SalaryTooLowException, BankNumberLengthException, NinLengthException, FNameLengthException, LNameLengthException {
+    public void isValidEmployee_shouldReturnFalse_whenEmployeeLastNameTooLong() throws SalaryTooLowException, BankNumberLengthException, NinLengthException{
         EmployeeRequest employeeRequest = new EmployeeRequest(
                 30000,
                 "Tim",
@@ -190,7 +190,7 @@ class EmployeeValidatorTest {
     This should fail, make code changes to make this test pass
      */
     @Test
-    public void isValidEmployee_shouldThrowNinLengthException_whenNiNTooShort() throws SalaryTooLowException, BankNumberLengthException, FNameLengthException, LNameLengthException {
+    public void isValidEmployee_shouldThrowNinLengthException_whenNiNTooShort(){
         EmployeeRequest employeeRequest = new EmployeeRequest(
                 30000,
                 "Tim",
@@ -221,7 +221,7 @@ class EmployeeValidatorTest {
     This should fail, make code changes to make this test pass
      */
     @Test
-    public void isValidEmployee_shouldThrowNinLengthException_whenNiNTooLong() throws SalaryTooLowException, BankNumberLengthException, FNameLengthException, LNameLengthException {
+    public void isValidEmployee_shouldThrowNinLengthException_whenNiNTooLong(){
         EmployeeRequest employeeRequest = new EmployeeRequest(
                 30000,
                 "Tim",
@@ -246,7 +246,7 @@ class EmployeeValidatorTest {
 
     //Self selected cases
     @Test
-    public void isValidEmployee_shouldReturnFalse_whenEmployeeFirstNameTooShort() throws SalaryTooLowException, BankNumberLengthException, NinLengthException, FNameLengthException, LNameLengthException {
+    public void isValidEmployee_shouldReturnFalse_whenEmployeeFirstNameTooShort() throws SalaryTooLowException, BankNumberLengthException, NinLengthException{
         EmployeeRequest employeeRequest = new EmployeeRequest(
                 30000,
                 "",
@@ -266,7 +266,7 @@ class EmployeeValidatorTest {
         assertFalse(employeeValidator.isValidEmployee(employeeRequest));
     }
     @Test
-    public void isValidEmployee_shouldReturnFalse_whenEmployeeLastNameTooShort() throws SalaryTooLowException, BankNumberLengthException, NinLengthException, FNameLengthException, LNameLengthException {
+    public void isValidEmployee_shouldReturnFalse_whenEmployeeLastNameTooShort() throws SalaryTooLowException, BankNumberLengthException, NinLengthException{
         EmployeeRequest employeeRequest = new EmployeeRequest(
                 30000,
                 "Tim",

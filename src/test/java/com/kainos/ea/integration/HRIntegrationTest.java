@@ -100,6 +100,10 @@ public class HRIntegrationTest {
         Employee returnedEmployee = APP.client().target("http://localhost:8080/hr/employee/" + response).request().get().readEntity(Employee.class);
 
         Assertions.assertEquals(response, returnedEmployee.getEmployeeId());
+        Assertions.assertEquals(employeeRequest.getFname(), returnedEmployee.getFname());
+        Assertions.assertEquals(employeeRequest.getLname(), returnedEmployee.getLname());
+        Assertions.assertEquals(employeeRequest.getAddress(), returnedEmployee.getAddress());
+
     }
     /*
     Integration Test Exercise 2
